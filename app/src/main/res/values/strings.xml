@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Zadanie</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="generate_url_error">Nie udało się wygenerowac linku</string>
+    <string name="incorrectUrl">Niepoprawny adres strony internetowej</string>
+    <string name="write_url_adress">Wprowadź adres url</string>
+    <string name="default_longurl">longURl</string>
+    <string name="default_shorturl">shortUrl</string>
+</resources>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/menuColor"
+    >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_alignParentTop="true"
+        android:paddingTop="3dp"
+        android:paddingLeft="5dp"
+        android:text="@string/default_longurl"
+        android:textColor="@color/textColor"
+        android:textSize="15dp"
+        android:id="@+id/longUrlTV"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_below="@id/longUrlTV"
+        android:paddingLeft="5dp"
+        android:textColor="@color/textColor"
+        android:text="@string/default_shorturl"
+        android:textSize="15dp"
+        android:id="@+id/shortUrlTV"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorPrimary"
+        android:layout_below="@id/shortUrlTV"/>
+
+</RelativeLayout>
