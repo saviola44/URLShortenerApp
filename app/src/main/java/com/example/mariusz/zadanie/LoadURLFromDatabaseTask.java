@@ -16,11 +16,14 @@ import java.util.List;
 public class LoadURLFromDatabaseTask extends AsyncTask<Void, Void,Void> {
     List<MyLongUrl> urlList;
     Context context;
-    URLAdapter adapter;
+    LoadURLHandler handler;
 
-    public LoadURLFromDatabaseTask(Context context, URLAdapter adapter) {
+    interface LoadURLHandler{
+        void setList(List<MyLongUrl> urlList);
+    }
+    public LoadURLFromDatabaseTask(Context context, LoadURLHandler handler) {
         this.context = context;
-        this.adapter = adapter;
+        this.handler = handler;
     }
 
     @Override
@@ -38,7 +41,6 @@ public class LoadURLFromDatabaseTask extends AsyncTask<Void, Void,Void> {
     @Override
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
-        adapter.setUrlList(urlList);
-        adapter.notifyDataSetChanged();
+        handler.setList(urlList);
     }
 }

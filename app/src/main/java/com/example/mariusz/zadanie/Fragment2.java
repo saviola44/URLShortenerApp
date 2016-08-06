@@ -23,7 +23,7 @@ import java.util.List;
 /**
  * Created by mariusz on 03.08.16.
  */
-public class Fragment2 extends Fragment {
+public class Fragment2 extends Fragment implements LoadURLFromDatabaseTask.LoadURLHandler{
     ListView urlListView;
     List<MyLongUrl> urlList;
     URLAdapter adapter;
@@ -45,7 +45,9 @@ public class Fragment2 extends Fragment {
         urlListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                openUrlAdressInBrowser(urlList.get(position));
+                if(urlList!=null){
+                    openUrlAdressInBrowser(urlList.get(position));
+                }
             }
         });
         return view;
@@ -57,7 +59,7 @@ public class Fragment2 extends Fragment {
     }
 
     public void loadDataFromDatabase(){
-        LoadURLFromDatabaseTask task = new LoadURLFromDatabaseTask(getActivity().getApplicationContext(), adapter);
+        LoadURLFromDatabaseTask task = new LoadURLFromDatabaseTask(getActivity().getApplicationContext(), this);
         task.execute();
     }
 
@@ -71,5 +73,12 @@ public class Fragment2 extends Fragment {
                     + " Please install a webbrowser",  Toast.LENGTH_LONG).show();
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void setList(List<MyLongUrl> urlList) {
+        this.urlList=urlList;
+        adapter.setUrlList(urlList);
+        adapter.notifyDataSetChanged();
     }
 }
